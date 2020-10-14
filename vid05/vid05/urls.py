@@ -1,4 +1,4 @@
-"""vid04 URL Configuration
+"""vid05 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -15,12 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from vid04.views import saludo, adios, dameFecha, calculaEdad
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hola/', saludo),
-    path('chao/', adios),
-    path('fecha/', dameFecha),
-    path('edad/<int:edad>/<int:jahre>', calculaEdad),
 ]

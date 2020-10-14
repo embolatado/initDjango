@@ -30,11 +30,10 @@ def dameFecha(request):
 
 
 # PASAR PARÁMETROS EN URL - Django es URL friendly para SEO
-def calculaEdad(request, jahre):
+def calculaEdad(request, edad, jahre):
 
-    edad_actual = 20
     periodo = jahre-2020
-    edadFutura = edad_actual + periodo
+    edadFutura = edad + periodo
     
     documento = """<html><body><h3>En el año %s tendrás %s años.</h3></body></html>""" %(jahre, edadFutura)
 
