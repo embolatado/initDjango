@@ -1,7 +1,3 @@
-# AVOID PUBLISHING DJANGO SECRET KEY
-# /vid*/vid*/settings.py
-
-
 # ENVIROMENT
 *.code-workspace
 .env*
