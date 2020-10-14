@@ -1,3 +1,4 @@
 # ENVIROMENT
 *.code-workspace
 .env*
+_info.*
