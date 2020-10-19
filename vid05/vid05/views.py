@@ -5,7 +5,7 @@ from django.template import Template, Context
 def saludo(request):
 
     doc_externo = open(
-        '/vid05/vid05/plantillas/miplantilla.html')
+        '/Users/JulianLopera/Django/initDjango/vid05/vid05/plantillas/miplantilla.html')
 
     # 1. 
     plantilla = Template(doc_externo.read())
