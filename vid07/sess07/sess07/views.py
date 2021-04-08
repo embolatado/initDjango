@@ -14,3 +14,5 @@ def despedida(request):
 # VISTA 
 def fecha_hora(request):
     ahora = datetime.datetime.now()
+
+    return HttpResponse("Ahora es %s" % ahora)
