@@ -8,6 +8,16 @@
 <body style="background-color: mediumaquamarine; color: whitesmoke; font-family: 'Courier New', Courier, monospace;">
     <h3>Plantilla Despedida</h3>
     <p>Hola alumnos, soy {{nom_persona}} {{apell_persona}}</p>
-    <p>Hoy es {{momento_actual.day}} / {{momento_actual.month}} / {{momento_actual.year}}</p>
+    <p>Curso Django: {{momento_actual.day}} / {{momento_actual.month}} / {{momento_actual.year}}</p>
+    <h4><strong>Temario:</strong></h4>
+    <ul>
+        {% if temas%}
+            {% for cada_tema in temas %}
+                <li>{{cada_tema}}</li>
+            {% endfor %}
+        {% else %}
+            <p>{{"No hay temas que mostrar"}}</p>
+        {% endif %}
+    </ul>
 </body>
 </html>

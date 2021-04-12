@@ -51,7 +51,7 @@ def despedida(request):
     var_uno = open('/Users/JulianLopera/Django/initDjango/vid07/sess07/templates/despedida.html')
     var_dos = Template(var_uno.read())
     var_uno.close()
-    var_tri = Context({"nom_persona": persona1.name, "apell_persona": persona1.lname, "momento_actual": ahora})
+    var_tri = Context({"nom_persona": persona1.name, "apell_persona": persona1.lname, "momento_actual": ahora, "temas":["Plantillas", "Modelos", "Formularios", "Vistas", "Vistas Avanzadas", "Despliegue Aplicación"]})
     var_qtr = var_dos.render(var_tri)
     
     return HttpResponse(var_qtr)
