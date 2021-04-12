@@ -2,13 +2,22 @@ from django.http import HttpResponse
 from django.template import Template, Context
 import datetime
 
+
+# CONSTRUCTOR DE PERSONAS
+class Persona(object):
+    def __init__(self, nombre, apellido):
+        self.name = nombre
+        self.lname = apellido
+
+
 #VISTA hola/
 def saludo(request):
     
+
     # SE INDICA LA RUTA DE LA PLANTILLA
     var_a  = open('/Users/JulianLopera/Django/initDjango/vid07/sess07/templates/plantilla.html')
 
-    # SE CREA EL TEMPLATE
+    # SE LEE EL TEMPLATE
     var_b = Template(var_a.read())
 
     # SE CIERRA LA CONEXIÓN A LA PLANTILLA PARA NO GASTAR RECURSOS EXTRA
@@ -24,9 +33,28 @@ def saludo(request):
     return HttpResponse(var_d)
 
 
+
+
 # VISTA chao/
 def despedida(request):
-    return HttpResponse("Hasta pronto, alumnos Django.")
+    
+    persona1 = Persona("Prof. Juan", "Díaz")
+    persona2 = Persona("Dra. María", "Gómez")
+    persona3 = Persona("Mlle. Emmanuelle", "Durant")
+
+    ahora = datetime.datetime.now()
+
+
+    # VISTA CON DICCIONARIO {} EN CONTEXTO
+    # SE INICIA LA PLANTILLA
+
+    var_uno = open('/Users/JulianLopera/Django/initDjango/vid07/sess07/templates/despedida.html')
+    var_dos = Template(var_uno.read())
+    var_uno.close()
+    var_tri = Context({"nom_persona": persona1.name, "apell_persona": persona1.lname, "momento_actual": ahora})
+    var_qtr = var_dos.render(var_tri)
+    
+    return HttpResponse(var_qtr)
 
 # VISTA ahora/
 def fecha_hora(request):
