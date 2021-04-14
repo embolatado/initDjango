@@ -7,7 +7,7 @@
 </head>
 <body style="background-color: mediumaquamarine; color: whitesmoke; font-family: 'Courier New', Courier, monospace;">
     <h3>Plantilla Despedida</h3>
-    <p>Hola alumnos, soy {{nom_persona}} {{apell_persona}}</p>
+    <p>Hola alumnos, soy {{nom_persona}} {{apell_persona.upper}}</p>
     <p>Curso Django: {{momento_actual.day}} / {{momento_actual.month}} / {{momento_actual.year}}</p>
     <h4><strong>Temario:</strong></h4>
     <ul>
@@ -16,7 +16,7 @@
                 <li>{{cada_tema}}</li>
             {% endfor %}
         {% else %}
-            <p>{{"No hay temas que mostrar"}}</p>
+            <p>No hay temas que mostrar</p>
         {% endif %}
     </ul>
 </body>

@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.template import Template, Context
+from django.template import loader
 import datetime
+
 
 
 # CONSTRUCTOR DE PERSONAS
@@ -44,19 +46,24 @@ def despedida(request):
 
     ahora = datetime.datetime.now()
 
-    temario = ["Plantillas", "Modelos", "Formularios",
-               "Vistas", "Vistas Avanzadas", "Despliegue Aplicación"]
+    temario = ["Plantillas", "Modelos", "Formularios", "Vistas", "Despliegue" ]
 
     # VISTA CON DICCIONARIO {} EN CONTEXTO
     # SE INICIA LA PLANTILLA
 
-    var_uno = open('/Users/JulianLopera/Django/initDjango/vid07/sess07/templates/despedida.html')
-    var_dos = Template(var_uno.read())
-    var_uno.close()
-    var_tri = Context({"nom_persona": persona1.name, "apell_persona": persona1.lname, "momento_actual": ahora, "temas": temario})
-    var_qtr = var_dos.render(var_tri)
-    
+    # YA NO SE NECESITAN AL USAR EL loader
+    # var_uno = open('/Users/JulianLopera/Django/initDjango/vid07/sess07/templates/despedida.html')
+    # var_dos = Template(var_uno.read())
+    # var_uno.close()
+    #var_tri = Context({"nom_persona": persona2.name, "apell_persona": persona2.lname, "momento_actual": ahora, "temas": temario})
+    #var_qtr = var_dos.render(var_tri)
+
+    doc_externo = loader.get_template('despedida.html')    
+    var_qtr = doc_externo.render({"nom_persona": persona2.name, "apell_persona": persona2.lname, "momento_actual": ahora, "temas": temario})
+
     return HttpResponse(var_qtr)
+
+    
 
 # VISTA ahora/
 def fecha_hora(request):
